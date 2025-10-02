@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saif's Study Materials</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f5f5f5;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+      background: #4CAF50;
+      color: white;
+      border-radius: 10px;
+    }
+    .search-box {
+      text-align: center;
+      margin: 20px 0;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 60%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .materials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+    .card {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .card h3 {
+      margin: 0 0 10px;
+    }
+    .card img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .card a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #4CAF50;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📘 Saif's Study Materials</h1>
+    <p>Search and explore your notes, photos, and PDFs</p>
+  </header>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search by topic..." onkeyup="searchMaterials()">
+  </div>
+
+  <div class="materials" id="materials">
+    <!-- Example material cards -->
+    <div class="card" data-topic="physics">
+      <h3>Physics - Newton's Laws</h3>
+      <p>Notes about Newton's 3 laws of motion.</p>
+      <img src="https://via.placeholder.com/200x120" alt="Physics Image">
+      <a href="#">Download PDF</a>
+    </div>
+
+    <div class="card" data-topic="math">
+      <h3>Mathematics - Calculus</h3>
+      <p>Introduction to derivatives and integrals.</p>
+      <img src="https://via.placeholder.com/200x120" alt="Math Image">
+      <a href="#">Download PDF</a>
+    </div>
+
+    <div class="card" data-topic="electronics">
+      <h3>Electronics - Ohm's Law</h3>
+      <p>Relationship between voltage, current, and resistance.</p>
+      <img src="https://via.placeholder.com/200x120" alt="Electronics Image">
+      <a href="#">Download PDF</a>
+    </div>
+  </div>
+
+  <script>
+    function searchMaterials() {
+      let input = document.getElementById('searchInput').value.toLowerCase();
+      let cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        let topic = card.getAttribute('data-topic');
+        if (topic.includes(input)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
